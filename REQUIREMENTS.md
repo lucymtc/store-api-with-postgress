@@ -4,39 +4,170 @@ The company stakeholders want to create an online storefront to showcase their g
 These are the notes from a meeting with the frontend developer that describe what endpoints the API needs to supply, as well as data shapes the frontend and backend have agreed meet the requirements of the application. 
 
 ## API Endpoints
-#### Products
-- Index 
-- Show
-- Create [token required]
-- [OPTIONAL] Top 5 most popular products 
-- [OPTIONAL] Products by category (args: product category)
+### <u>Products</u>
+#### List Products
+##### Definition
+GET `/products`
+<small>Returns a list of products</small>
 
-#### Users
-- Index [token required]
-- Show [token required]
-- Create N[token required]
+#### Create a Product
+##### Definition
+POST `/products`
+<small>Creates a new product, authentication toket required</small>
 
-#### Orders
-- Current Order by user (args: user id)[token required]
-- [OPTIONAL] Completed Orders by user (args: user id)[token required]
+##### Arguments
+| Argument       | Description                         |
+| -------------- | ----------------------------------- |
+| name           |  Name of the product                |
+| price          |  Price of the product               |
+| category_id    |  Cateogry ID the product belongs to |
+
+#### Retrieve a Product
+##### Definition
+GET `/products/:id`
+<small>Returns one product record by the given ID</small>
+
+##### Arguments
+| Argument       | Description              |
+| -------------- | ------------------------ |
+| id             |  The Product's ID        |
+
+#### Update a product
+##### Definition
+PUT `/products/:id`
+<small>Updates a product with the given ID, authentication toket required</small>
+
+##### Arguments
+| Argument       | Description                         |
+| -------------- | ----------------------------------- |
+| id             |  The Product's ID                   |
+| name           |  Name of the product                |
+| price          |  Price of the product               |
+| category_id    |  Cateogry ID the product belongs to |
+
+#### Delete a Product
+##### Definition
+DELETE `/products/:id`
+<small>Deletes a product with the given ID, authentication toket required</small>
+
+##### Arguments
+| Argument       | Description              |
+| -------------- | ------------------------ |
+| id             |  The Product's ID         |
+
+### <u>Users</u>
+#### List Users
+##### Definition
+GET `/users`
+<small>Returns a list of users, authentication toket required</small>
+
+#### Create a User
+##### Definition
+POST `/users`
+<small>Creates a new user, authentication toket required</small>
+
+##### Arguments
+| Argument       | Description              |
+| -------------- | ------------------------ |
+| username       |  Username of the user    |
+| first_name     |  First Name of the user  |
+| last_name      |  Last Name of the user   |
+| password       |  Password of the user    |
+#### Retrieve a User
+##### Definition
+GET `/users/:id`
+<small>Returns one user record by the given ID, authentication toket required</small>
+
+##### Arguments
+| Argument       | Description              |
+| -------------- | ------------------------ |
+| id             |  The User's ID         |
+
+#### Update a User
+##### Definition
+PUT `/users/:id`
+<small>Updates a user with the given ID, authentication toket required</small>
+
+##### Arguments
+| Argument       | Description              |
+| -------------- | ------------------------ |
+| id             |  The User's ID           |
+| username       |  Username of the user    |
+| first_name     |  First Name of the user  |
+| last_name      |  Last Name of the user   |
+| password       |  Password of the user    |
+
+### <u>Orders</u>
+
+#### List Orders
+##### Definition
+GET `/orders`
+<small>Returns a list of orders, authentication toket required</small>
+
+##### Arguments
+| Argument       | Description                                         |
+| -------------- | --------------------------------------------------- |
+| status         | The status of the order<br>One of: active, complete |
+| user           | The user ID                                         |
+
+#### Retrieve an Order
+##### Definition
+GET `/orders/:id`
+<small>Returns one order record by the given ID, authentication toket required</small>
+
+##### Arguments
+| Argument       | Description              |
+| -------------- | ------------------------ |
+| id             |  The Orders's ID         |
+
+#### Update an Order
+##### Definition
+PUT `/orders/:id`
+<small>Updates an order with the given ID, authentication toket required</small>
+
+##### Arguments
+| Argument       | Description                                       |
+| -------------- | ------------------------------------------------- |
+| id             |  The Order's ID                                   |
+| status         |  Status of ther order<br>One of: active, complete |
+
+#### Delete an Order
+##### Definition
+DELETE `/orders/:id`
+<small>Deletes an order with the given ID, authentication toket required</small>
+
+##### Arguments
+| Argument       | Description              |
+| -------------- | ------------------------ |
+| id             |  The Orders's ID         |
 
 ## Data Shapes
-#### Product
--  id
-- name
-- price
-- [OPTIONAL] category
+#### Products
+- id `SERIAL PRIMARY KEY`
+- name `VARCHAR`
+- price `INTEGER`
+- category_id `INTEGER REFERENCES category(id)`
 
-#### User
-- id
-- firstName
-- lastName
-- password
+#### Categories
+- id `SERIAL PRIMARY KEY`
+- name `VARCHAR`
+- slug `VARCHAR`
+- description `TEXT`
+
+#### Users
+- id `SERIAL PRIMARY KEY`
+- username `VARCHAR`
+- first_name `VARCHAR`
+- last_name `VARCHAR`
+- password `VARCHAR`
 
 #### Orders
-- id
-- id of each product in the order
-- quantity of each product in the order
-- user_id
-- status of order (active or complete)
+- id `SERIAL PRIMARY KEY`
+- user_id `INTEGER REFERENCES users(id)`
+- status `VARCHAR`
+
+#### Orders_Products
+- order_id `INTEGER REFERENCES orders(id)`
+- product_id `INTEGER REFERENCES products(id)`
+- quantity `INTEGER`
 
