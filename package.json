@@ -3,18 +3,18 @@
   "version": "0.1.0",
   "description": "",
   "main": "server.ts",
+  "license": "MIT",
   "scripts": {
     "prettier": "prettier --config .prettierrc './**/*.{js,ts}' --write",
     "lint": "eslint ./src --ext .js,.ts",
     "lint-fix": "eslint ./src --ext .js,.ts --fix",
-    "start": "node src/server.ts",
+    "start": "node dist/server.js",
     "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"",
     "test": "jasmine-ts",
     "tsc": "tsc",
+    "build": "npx tsc",
     "prepare": "husky install"
   },
-  "author": "Udacity",
-  "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
