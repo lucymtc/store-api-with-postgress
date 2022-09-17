@@ -5,7 +5,8 @@
     "port": {"ENV": "POSTGRES_PORT"},
     "database": {"ENV": "POSTGRES_DB"},
     "user": {"ENV": "POSTGRES_USER"},
-    "password": {"ENV": "POSTGRES_PASSWORD"}
+    "password": {"ENV": "POSTGRES_PASSWORD"},
+    "multipleStatements": true
   },
   "test": {
     "driver": "pg",
@@ -13,7 +14,8 @@
     "port": {"ENV": "POSTGRES_PORT"},
     "database": {"ENV": "POSTGRES_DB_TEST"},
     "user": {"ENV": "POSTGRES_USER"},
-    "password": {"ENV": "POSTGRES_PASSWORD"}
+    "password": {"ENV": "POSTGRES_PASSWORD"},
+    "multipleStatements": true
   },
   "sql-file" : true
 }

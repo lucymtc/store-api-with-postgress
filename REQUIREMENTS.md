@@ -4,6 +4,56 @@ The company stakeholders want to create an online storefront to showcase their g
 These are the notes from a meeting with the frontend developer that describe what endpoints the API needs to supply, as well as data shapes the frontend and backend have agreed meet the requirements of the application. 
 
 ## API Endpoints
+### <u>Categories</u>
+#### List Categories
+##### Definition
+GET `/categories`
+<small>Returns a list of categories</small>
+
+#### Create a Category
+##### Definition
+POST `/categories`
+<small>Creates a new category, authentication toket required</small>
+
+##### Arguments
+| Argument       | Description                         |
+| -------------- | ----------------------------------- |
+| name           |  Name of the category               |
+| slug           |  Slug of the category               |
+| description    |  Cateogry description               |
+
+#### Retrieve a Category
+##### Definition
+GET `/categories/:id`
+<small>Returns one category record by the given ID</small>
+
+##### Arguments
+| Argument       | Description              |
+| -------------- | ------------------------ |
+| id             |  The Category ID         |
+
+#### Update a Category
+##### Definition
+PUT `/categories/:id`
+<small>Updates a category with the given ID, authentication toket required</small>
+
+##### Arguments
+| Argument       | Description                         |
+| -------------- | ----------------------------------- |
+| id             |  The Category ID                    |
+| name           |  Name of the category               |
+| slug           |  Slug of the category               |
+| description    |  Cateogry description               |
+
+#### Delete a Category
+##### Definition
+DELETE `/categories/:id`
+<small>Deletes a category with the given ID, authentication toket required</small>
+
+##### Arguments
+| Argument       | Description              |
+| -------------- | ------------------------ |
+| id             |  The Category ID        |
 ### <u>Products</u>
 #### List Products
 ##### Definition
@@ -53,7 +103,7 @@ DELETE `/products/:id`
 ##### Arguments
 | Argument       | Description              |
 | -------------- | ------------------------ |
-| id             |  The Product's ID         |
+| id             |  The Product's ID        |
 
 ### <u>Users</u>
 #### List Users

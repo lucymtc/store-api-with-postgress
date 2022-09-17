@@ -10,7 +10,7 @@
     "lint-fix": "eslint ./src --ext .js,.ts --fix",
     "start": "node dist/server.js",
     "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node ./dist/server.js\"",
-    "test": "jasmine-ts",
+    "test": "npm run build && db-migrate -e test up  && ENV=test jasmine && db-migrate reset -e test",
     "tsc": "tsc",
     "build": "npx tsc",
     "prepare": "husky install"
@@ -38,7 +38,6 @@
     "husky": "^8.0.1",
     "jasmine": "^4.4.0",
     "jasmine-spec-reporter": "^7.0.0",
-    "jasmine-ts": "^0.4.0",
     "lint-staged": "^13.0.3",
     "prettier": "2.7.1",
     "ts-node": "^10.9.1",
