@@ -164,7 +164,7 @@ DELETE `/orders/:id`
 #### Orders
 - id `SERIAL PRIMARY KEY`
 - user_id `INTEGER REFERENCES users(id)`
-- status `VARCHAR`
+- status `ENUM ('active', 'complete')`
 
 #### Orders_Products
 - order_id `INTEGER REFERENCES orders(id)`
