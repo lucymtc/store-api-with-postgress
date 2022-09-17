@@ -48,11 +48,11 @@ export class CategoryStore {
         data.description
       ]);
 
-      const product = result.rows[0];
+      const category = result.rows[0];
 
       conn.release();
 
-      return product;
+      return category;
     } catch (err) {
       throw new Error(`Could not add new category ${data.name}. Error: ${err}`);
     }
@@ -65,11 +65,11 @@ export class CategoryStore {
 
       const result = await conn.query(sql, [id]);
 
-      const product = result.rows[0];
+      const category = result.rows[0];
 
       conn.release();
 
-      return product;
+      return category;
     } catch (err) {
       throw new Error(`Could not delete category ${id}. Error: ${err}`);
     }
