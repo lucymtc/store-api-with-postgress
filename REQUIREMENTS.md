@@ -210,6 +210,7 @@ DELETE `/orders/:id`
 - first_name `VARCHAR`
 - last_name `VARCHAR`
 - password `VARCHAR`
+- status `ENUM ('active', 'inactive')`
 
 #### Orders
 - id `SERIAL PRIMARY KEY`

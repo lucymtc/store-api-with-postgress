@@ -1,2 +1,2 @@
 DROP TABLE orders;
-DROP TYPE statustype;
+DROP TYPE orderstatus;
