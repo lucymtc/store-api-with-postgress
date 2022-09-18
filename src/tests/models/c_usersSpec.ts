@@ -19,9 +19,9 @@ describe('User Model', () => {
     expect(store.update).toBeDefined();
   });
 
-  it('should have a delete method', () => {
-    expect(store.delete).toBeDefined();
-  });
+  //   it('should have a delete method', () => {
+  //     expect(store.delete).toBeDefined();
+  //   });
 
   it('index method should return a list of users', async () => {
     const result = await store.index();

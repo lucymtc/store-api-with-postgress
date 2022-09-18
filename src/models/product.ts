@@ -81,18 +81,14 @@ export class ProductStore {
     }
   }
 
-  async delete(id: number): Promise<Product> {
+  async delete(id: number) {
     try {
       const sql = 'DELETE FROM products WHERE id=($1)';
       const conn = await Client.connect();
 
-      const result = await conn.query(sql, [id]);
-
-      const product = result.rows[0];
+      await conn.query(sql, [id]);
 
       conn.release();
-
-      return product;
     } catch (err) {
       throw new Error(`Could not delete product ${id}. Error: ${err}`);
     }

@@ -53,7 +53,7 @@ describe('Category Model', () => {
   });
 
   it('delete method should delete a category', async () => {
-    const result: Category = await store.delete(1);
+    const result = await store.delete(1);
     expect(result).toBeUndefined();
   });
 });

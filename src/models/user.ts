@@ -86,16 +86,16 @@ export class UserStore {
     }
   }
 
-  async delete(id: number) {
-    try {
-      const sql = 'DELETE FROM users WHERE id=($1)';
-      const conn = await Client.connect();
+  //   async delete(id: number) {
+  //     try {
+  //       const sql = 'DELETE FROM users WHERE id=($1)';
+  //       const conn = await Client.connect();
 
-      const result = await conn.query(sql, [id]);
-      console.log('PRUT!!!!', result);
-      conn.release();
-    } catch (err) {
-      throw new Error(`Could not delete user ${id}. Error: ${err}`);
-    }
-  }
+  //       const result = await conn.query(sql, [id]);
+  //       console.log('PRUT!!!!', result);
+  //       conn.release();
+  //     } catch (err) {
+  //       throw new Error(`Could not delete user ${id}. Error: ${err}`);
+  //     }
+  //   }
 }

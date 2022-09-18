@@ -69,7 +69,7 @@ describe('Product Model', () => {
   });
 
   it('delete method should delete a product', async () => {
-    const result: Product = await store.delete(1);
+    const result = await store.delete(1);
     expect(result).toBeUndefined();
   });
 });
