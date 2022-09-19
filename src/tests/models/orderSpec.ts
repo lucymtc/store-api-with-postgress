@@ -17,7 +17,7 @@ describe('Order Model', () => {
 
   it('index method should return a list of orders', async () => {
     const result = await store.index();
-    expect(result).toEqual([]);
+    expect(result).toEqual([{ id: 1, user_id: 1, status: 'active' }]);
   });
 
   it('create method should add a order', async () => {
@@ -27,20 +27,20 @@ describe('Order Model', () => {
     });
 
     expect(result).toEqual({
-      id: 1,
+      id: 2,
       user_id: 1,
       status: 'active'
     });
   });
 
   it('update method should update a order', async () => {
-    const result: Order = await store.update(1, {
+    const result: Order = await store.update(2, {
       user_id: 1,
       status: 'complete'
     });
 
     expect(result).toEqual({
-      id: 1,
+      id: 2,
       user_id: 1,
       status: 'complete'
     });

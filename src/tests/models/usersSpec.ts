@@ -19,13 +19,18 @@ describe('User Model', () => {
     expect(store.update).toBeDefined();
   });
 
-  //   it('should have a delete method', () => {
-  //     expect(store.delete).toBeDefined();
-  //   });
-
   it('index method should return a list of users', async () => {
     const result = await store.index();
-    expect(result).toEqual([]);
+    expect(result).toEqual([
+      {
+        id: 1,
+        username: 'lucymtc',
+        first_name: 'Lucy',
+        last_name: 'Tomas',
+        password: '123password',
+        status: 'active'
+      }
+    ]);
   });
 
   it('create method should add a user', async () => {
@@ -37,7 +42,7 @@ describe('User Model', () => {
     });
 
     expect(result).toEqual({
-      id: 1,
+      id: 2,
       username: 'testusername',
       first_name: 'Testname',
       last_name: 'Testlastname',
@@ -46,10 +51,10 @@ describe('User Model', () => {
     });
   });
 
-  it('show method should return a one user by ID', async () => {
-    const result = await store.show(1);
+  it('show method should return one user by ID', async () => {
+    const result = await store.show(2);
     expect(result).toEqual({
-      id: 1,
+      id: 2,
       username: 'testusername',
       first_name: 'Testname',
       last_name: 'Testlastname',
@@ -59,7 +64,7 @@ describe('User Model', () => {
   });
 
   it('update method should update a user', async () => {
-    const result: User = await store.update(1, {
+    const result: User = await store.update(2, {
       username: 'testusername',
       first_name: 'Updatename',
       last_name: 'Updatelastname',
@@ -68,7 +73,7 @@ describe('User Model', () => {
     });
 
     expect(result).toEqual({
-      id: 1,
+      id: 2,
       username: 'testusername',
       first_name: 'Updatename',
       last_name: 'Updatelastname',

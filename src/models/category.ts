@@ -77,7 +77,7 @@ export class CategoryStore {
 
       return category;
     } catch (err) {
-      throw new Error(`Could not add new category ${data.name}. Error: ${err}`);
+      throw new Error(`Could not update category ${data.name}. Error: ${err}`);
     }
   }
 

@@ -1,22 +1,8 @@
 import { Product, ProductStore } from '../../models/product';
-import { Category, CategoryStore } from '../../models/category';
 
 const store = new ProductStore();
 
 describe('Product Model', () => {
-  let categoryId = 0;
-  beforeAll(async () => {
-    const cStore = new CategoryStore();
-
-    const catResult: Category = await cStore.create({
-      name: 'Music',
-      slug: 'music',
-      description: 'Digital, CD'
-    });
-
-    categoryId = catResult.id || 0;
-  });
-
   it('should have an index method', () => {
     expect(store.index).toBeDefined;
   });
@@ -35,41 +21,48 @@ describe('Product Model', () => {
 
   it('index method should return a list of products', async () => {
     const result = await store.index();
-    expect(result).toEqual([]);
+    expect(result).toEqual([
+      {
+        id: 1,
+        name: 'Think and grow rich',
+        price: 10,
+        category_id: 1
+      }
+    ]);
   });
 
   it('create method should add a product', async () => {
     const result: Product = await store.create({
-      name: 'Greatest hits',
+      name: 'Breaking the habit of being yourself',
       price: 10,
-      category_id: categoryId
+      category_id: 1
     });
 
     expect(result).toEqual({
-      id: 1,
-      name: 'Greatest hits',
+      id: 2,
+      name: 'Breaking the habit of being yourself',
       price: 10,
-      category_id: categoryId
+      category_id: 1
     });
   });
 
   it('update method should update a product', async () => {
-    const result: Product = await store.update(1, {
-      name: 'Greatest hits of all times',
+    const result: Product = await store.update(2, {
+      name: 'Breaking the habit of being yourself, Joe Dispenza',
       price: 20,
-      category_id: categoryId
+      category_id: 1
     });
 
     expect(result).toEqual({
-      id: 1,
-      name: 'Greatest hits of all times',
+      id: 2,
+      name: 'Breaking the habit of being yourself, Joe Dispenza',
       price: 20,
-      category_id: categoryId
+      category_id: 1
     });
   });
 
   it('delete method should delete a product', async () => {
-    const result = await store.delete(1);
+    const result = await store.delete(2);
     expect(result).toBeUndefined();
   });
 });

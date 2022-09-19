@@ -21,7 +21,14 @@ describe('Category Model', () => {
 
   it('index method should return a list of categories', async () => {
     const result = await store.index();
-    expect(result).toEqual([]);
+    expect(result).toEqual([
+      {
+        id: 1,
+        name: 'Books',
+        slug: 'books',
+        description: 'Kindle, Paper &s Audio Books'
+      }
+    ]);
   });
 
   it('create method should add a category', async () => {
@@ -31,7 +38,7 @@ describe('Category Model', () => {
       description: 'Digital, CD'
     });
     expect(result).toEqual({
-      id: 1,
+      id: 2,
       name: 'Music',
       slug: 'music',
       description: 'Digital, CD'
@@ -39,13 +46,13 @@ describe('Category Model', () => {
   });
 
   it('update method should update a category', async () => {
-    const result: Category = await store.update(1, {
+    const result: Category = await store.update(2, {
       name: 'Music',
       slug: 'music',
       description: 'Digital, CD, Vinyls'
     });
     expect(result).toEqual({
-      id: 1,
+      id: 2,
       name: 'Music',
       slug: 'music',
       description: 'Digital, CD, Vinyls'
@@ -53,7 +60,7 @@ describe('Category Model', () => {
   });
 
   it('delete method should delete a category', async () => {
-    const result = await store.delete(1);
+    const result = await store.delete(2);
     expect(result).toBeUndefined();
   });
 });
