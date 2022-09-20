@@ -59,7 +59,7 @@ const create = async (_req: Request, res: Response) => {
  * @param _req Request
  * @param res  Response
  */
-const modify = async (_req: Request, res: Response) => {
+const update = async (_req: Request, res: Response) => {
   const user: User = {
     username: _req.body.username,
     first_name: _req.body.first_name,
@@ -68,8 +68,9 @@ const modify = async (_req: Request, res: Response) => {
     status: _req.body.status
   };
 
+  const id = _req.params.id as unknown as number;
+
   try {
-    const id = _req.params.id as unknown as number;
     const updatedUser = await store.update(id, user);
     res.json(updatedUser);
   } catch (err) {
@@ -131,7 +132,7 @@ const inituser = async (_req: Request, res: Response) => {
 const userRoutes = (app: express.Application) => {
   app.get('/users', verifyJWT, index);
   app.get('/users/:id', verifyJWT, show);
-  app.put('/users/:id', verifyJWT, modify);
+  app.put('/users/:id', verifyJWT, update);
   app.post('/users', verifyJWT, create);
   app.post('/users/authenticate', authenticate);
 
