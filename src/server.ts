@@ -16,7 +16,7 @@ productsRoutes(app);
 ordersRoutes(app);
 
 app.get('/', function (req: Request, res: Response) {
-  res.send('Hello World!');
+  res.send('Check Requirements.md for the api endpoint details.');
 });
 
 app.listen(PORT, function () {
