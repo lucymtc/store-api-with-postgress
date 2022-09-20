@@ -11,8 +11,13 @@ const store = new ProductStore();
  * @param res  Response
  */
 const index = async (_req: Request, res: Response) => {
-  const results = await store.index();
-  res.json(results);
+  try {
+    const results = await store.index();
+    res.json(results);
+  } catch (err) {
+    res.status(400);
+    res.json(err);
+  }
 };
 
 /**
@@ -22,8 +27,13 @@ const index = async (_req: Request, res: Response) => {
  * @param res  Response
  */
 const show = async (_req: Request, res: Response) => {
-  const product = await store.show(_req.params.id as unknown as number);
-  res.json(product);
+  try {
+    const product = await store.show(_req.params.id as unknown as number);
+    res.json(product);
+  } catch (err) {
+    res.status(400);
+    res.json(err);
+  }
 };
 
 /**
