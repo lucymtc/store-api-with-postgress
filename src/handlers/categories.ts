@@ -11,8 +11,13 @@ const store = new CategoryStore();
  * @param res  Response
  */
 const index = async (_req: Request, res: Response) => {
-  const results = await store.index();
-  res.json(results);
+  try {
+    const results = await store.index();
+    res.json(results);
+  } catch (err) {
+    res.status(400);
+    res.json(err);
+  }
 };
 
 /**
@@ -22,8 +27,13 @@ const index = async (_req: Request, res: Response) => {
  * @param res  Response
  */
 const show = async (_req: Request, res: Response) => {
-  const category = await store.show(_req.params.id as unknown as number);
-  res.json(category);
+  try {
+    const category = await store.show(_req.params.id as unknown as number);
+    res.json(category);
+  } catch (err) {
+    res.status(400);
+    res.json(err);
+  }
 };
 
 /**
@@ -73,8 +83,13 @@ const update = async (_req: Request, res: Response) => {
 };
 
 const remove = async (_req: Request, res: Response) => {
-  await store.delete(_req.params.id as unknown as number);
-  res.json(`Category removed ${_req.params.id}`);
+  try {
+    await store.delete(_req.params.id as unknown as number);
+    res.json(`Category removed ${_req.params.id}`);
+  } catch (err) {
+    res.status(400);
+    res.json(err);
+  }
 };
 
 const categoriesRoutes = (app: express.Application) => {

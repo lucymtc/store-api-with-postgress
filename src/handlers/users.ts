@@ -14,8 +14,13 @@ const store = new UserStore();
  * @param res  Response
  */
 const index = async (_req: Request, res: Response) => {
-  const users = await store.index();
-  res.json(users);
+  try {
+    const users = await store.index();
+    res.json(users);
+  } catch (err) {
+    res.status(400);
+    res.json(err);
+  }
 };
 
 /**
@@ -25,8 +30,13 @@ const index = async (_req: Request, res: Response) => {
  * @param res  Response
  */
 const show = async (_req: Request, res: Response) => {
-  const user = await store.show(_req.params.id as unknown as number);
-  res.json(user);
+  try {
+    const user = await store.show(_req.params.id as unknown as number);
+    res.json(user);
+  } catch (err) {
+    res.status(400);
+    res.json(err);
+  }
 };
 
 /**

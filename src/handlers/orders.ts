@@ -14,8 +14,13 @@ const dashboardStore = new DashboardQueries();
  * @param res  Response
  */
 const index = async (_req: Request, res: Response) => {
-  const results = await store.index();
-  res.json(results);
+  try {
+    const results = await store.index();
+    res.json(results);
+  } catch (err) {
+    res.status(400);
+    res.json(err);
+  }
 };
 
 /**
@@ -25,8 +30,13 @@ const index = async (_req: Request, res: Response) => {
  * @param res  Response
  */
 const show = async (_req: Request, res: Response) => {
-  const order = await store.show(_req.params.id as unknown as number);
-  res.json(order);
+  try {
+    const order = await store.show(_req.params.id as unknown as number);
+    res.json(order);
+  } catch (err) {
+    res.status(400);
+    res.json(err);
+  }
 };
 
 /**
