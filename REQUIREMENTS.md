@@ -106,6 +106,19 @@ DELETE `/products/:id`
 | id             |  The Product's ID        |
 
 ### <u>Users</u>
+
+#### Initial app setup with user
+##### Definition
+POST `/users/inituser`
+<small>Creates a new user without authentication requirement in order to init the app and test, endpoint only for non production environments.</small>
+
+##### Arguments
+| Argument       | Description              |
+| -------------- | ------------------------ |
+| username       |  Username of the user    |
+| first_name     |  First Name of the user  |
+| last_name      |  Last Name of the user   |
+| password       |  Password of the user    |
 #### List Users
 ##### Definition
 GET `/users`
@@ -145,6 +158,17 @@ PUT `/users/:id`
 | username       |  Username of the user    |
 | first_name     |  First Name of the user  |
 | last_name      |  Last Name of the user   |
+| password       |  Password of the user    |
+
+#### Authenticates a User
+##### Definition
+PUT `/users/authenticate`
+<small>Authenticates a user</small>
+
+##### Arguments
+| Argument       | Description              |
+| -------------- | ------------------------ |
+| username       |  Username of the user    |
 | password       |  Password of the user    |
 
 ### <u>Orders</u>

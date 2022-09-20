@@ -22,7 +22,7 @@ export class CategoryStore {
     }
   }
 
-  async show(id: string): Promise<Category> {
+  async show(id: number): Promise<Category> {
     try {
       const sql = 'SELECT * FROM categories WHERE id=($1)';
       const conn = await Client.connect();
