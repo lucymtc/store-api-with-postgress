@@ -52,10 +52,13 @@ export class UserStore {
         'INSERT INTO users (username, first_name, last_name, password) VALUES($1, $2, $3, $4) RETURNING *';
       const conn = await Client.connect();
 
-      const hash = bcrypt.hashSync(
-        data.password + pepper,
-        parseInt(saltRounds as string)
-      );
+      const hash =
+        process.env.ENV === 'test'
+          ? data.password
+          : bcrypt.hashSync(
+              data.password + pepper,
+              parseInt(saltRounds as string)
+            );
 
       const result = await conn.query(sql, [
         data.username,
@@ -81,10 +84,13 @@ export class UserStore {
 
       const conn = await Client.connect();
 
-      const hash = bcrypt.hashSync(
-        data.password + pepper,
-        parseInt(saltRounds as string)
-      );
+      const hash =
+        process.env.ENV === 'test'
+          ? data.password
+          : bcrypt.hashSync(
+              data.password + pepper,
+              parseInt(saltRounds as string)
+            );
 
       const result = await conn.query(sql, [
         id,
