@@ -15,8 +15,8 @@ The storefront connects to a postgress database, in order to set up the database
     - Run `psql -U postgres` to connect to postgres.
     - Check if databases needed exist, for the app it self and separate databse for running tests `\psql`
     - If databases dont' exist, create.
-        `create database storefront;`
-        `create database storefront_tests;`
+        `create database lucymtc_storefront;`
+        `create database lucymtc_storefront_tests;`
 
 - Run `db-migrate up` to run the databse migrations.
 
