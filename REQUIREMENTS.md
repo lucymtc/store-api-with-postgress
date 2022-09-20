@@ -195,6 +195,51 @@ PUT `/orders/:id`
 | id             |  The Order's ID                                   |
 | status         |  Status of ther order<br>One of: active, complete |
 
+#### Add product to order
+##### Definition
+POST `/orders/:order_id/products/:product_id`
+<small>Adds a product to an order, authentication toket required</small>
+
+##### Arguments
+| Argument       | Description                                       |
+| -------------- | ------------------------------------------------- |
+| order_id       |  The Order's ID                                   |
+| product_id     |  The Products's ID                                |
+| quantity       |  Quantity Number                                  |
+
+#### Update product in order
+##### Definition
+PUT `/orders/:order_id/products/:product_id`
+<small>Updates a product in an order, authentication toket required</small>
+
+##### Arguments
+| Argument       | Description                                       |
+| -------------- | ------------------------------------------------- |
+| order_id       |  The Order's ID                                   |
+| product_id     |  The Products's ID                                |
+| quantity       |  Quantity Number                                  |
+
+
+#### Delete product in order
+##### Definition
+DELETE `/orders/:order_id/products/:product_id`
+<small>Deletes a product from an order, authentication toket required</small>
+
+##### Arguments
+| Argument       | Description                                       |
+| -------------- | ------------------------------------------------- |
+| order_id       |  The Order's ID                                   |
+| product_id     |  The Products's ID                                |
+
+#### Retrieve products list in an order
+##### Definition
+GET `/orders/:order_id/products`
+<small>Get all products added to an order, authentication toket required</small>
+
+##### Arguments
+| Argument       | Description                                       |
+| -------------- | ------------------------------------------------- |
+| order_id       |  The Order's ID                                   |
 
 ## Data Shapes
 #### Products

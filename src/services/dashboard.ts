@@ -1,7 +1,7 @@
 import Client from '../database';
 import { Product } from '../models/product';
 
-type ProductInOrder = Product & { quantity: number };
+export type ProductInOrder = Product & { quantity: number };
 
 export class DashboardQueries {
   async usersWithOrders(): Promise<
@@ -59,7 +59,7 @@ export class DashboardQueries {
     }
   }
 
-  async updateProductIdOrder(
+  async updateProductInOrder(
     order_id: number,
     product_id: number,
     quantity: number

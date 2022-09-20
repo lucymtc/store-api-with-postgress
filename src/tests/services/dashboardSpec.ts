@@ -31,7 +31,7 @@ describe('Dashboard Service', () => {
   });
 
   it('should update the product quantity from a specific order', async () => {
-    const result = await store.updateProductIdOrder(1, 1, 2);
+    const result = await store.updateProductInOrder(1, 1, 2);
     expect(result).toEqual({ order_id: 1, product_id: 1, quantity: 2 });
   });
 
