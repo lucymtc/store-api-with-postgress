@@ -22,7 +22,7 @@ export class ProductStore {
     }
   }
 
-  async show(id: string): Promise<Product> {
+  async show(id: number): Promise<Product> {
     try {
       const sql = 'SELECT * FROM products WHERE id=($1)';
       const conn = await Client.connect();
@@ -71,11 +71,11 @@ export class ProductStore {
         data.category_id
       ]);
 
-      const category = result.rows[0];
+      const product = result.rows[0];
 
       conn.release();
 
-      return category;
+      return product;
     } catch (err) {
       throw new Error(`Could not update product ${data.name}. Error: ${err}`);
     }

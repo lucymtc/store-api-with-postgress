@@ -46,6 +46,16 @@ describe('Product Model', () => {
     });
   });
 
+  it('show method should return one user by ID', async () => {
+    const result = await store.show(2);
+    expect(result).toEqual({
+      id: 2,
+      name: 'Breaking the habit of being yourself',
+      price: 10,
+      category_id: 1
+    });
+  });
+
   it('update method should update a product', async () => {
     const result: Product = await store.update(2, {
       name: 'Breaking the habit of being yourself, Joe Dispenza',

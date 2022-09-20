@@ -95,16 +95,6 @@ PUT `/products/:id`
 | price          |  Price of the product               |
 | category_id    |  Cateogry ID the product belongs to |
 
-#### Delete a Product
-##### Definition
-DELETE `/products/:id`
-<small>Deletes a product with the given ID, authentication toket required</small>
-
-##### Arguments
-| Argument       | Description              |
-| -------------- | ------------------------ |
-| id             |  The Product's ID        |
-
 ### <u>Users</u>
 
 #### Initial app setup with user
@@ -205,15 +195,6 @@ PUT `/orders/:id`
 | id             |  The Order's ID                                   |
 | status         |  Status of ther order<br>One of: active, complete |
 
-#### Delete an Order
-##### Definition
-DELETE `/orders/:id`
-<small>Deletes an order with the given ID, authentication toket required</small>
-
-##### Arguments
-| Argument       | Description              |
-| -------------- | ------------------------ |
-| id             |  The Orders's ID         |
 
 ## Data Shapes
 #### Products
