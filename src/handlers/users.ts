@@ -56,7 +56,7 @@ const create = async (_req: Request, res: Response) => {
   try {
     const newUser = await store.create(user);
     const token = jwt.sign({ user: newUser }, tokenSecret as Secret);
-    res.json(token);
+    res.json({ id: newUser.id, token });
   } catch (err) {
     res.status(400);
     res.json(err);
@@ -143,7 +143,7 @@ const userRoutes = (app: express.Application) => {
   app.get('/users', verifyJWT, index);
   app.get('/users/:id', verifyJWT, show);
   app.put('/users/:id', verifyJWT, update);
-  app.post('/users', verifyJWT, create);
+  app.post('/users', create);
   app.post('/users/authenticate', authenticate);
 
   if (process.env.ENV !== 'production') {
