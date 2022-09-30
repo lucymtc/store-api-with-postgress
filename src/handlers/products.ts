@@ -46,6 +46,7 @@ const create = async (_req: Request, res: Response) => {
   const product: Product = {
     name: _req.body.name,
     price: _req.body.price,
+    short_description: _req.body.short_description,
     category_id: _req.body.category_id
   };
 
@@ -68,6 +69,7 @@ const update = async (_req: Request, res: Response) => {
   const product: Product = {
     name: _req.body.name,
     price: _req.body.price,
+    short_description: _req.body.short_description,
     category_id: _req.body.category_id
   };
 

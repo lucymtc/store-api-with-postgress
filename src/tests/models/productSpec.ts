@@ -26,6 +26,7 @@ describe('Product Model', () => {
         id: 1,
         name: 'Think and grow rich',
         price: 10,
+        short_description: 'Test short description',
         category_id: 1
       }
     ]);
@@ -35,6 +36,7 @@ describe('Product Model', () => {
     const result: Product = await store.create({
       name: 'Breaking the habit of being yourself',
       price: 10,
+      short_description: 'Test short description',
       category_id: 1
     });
 
@@ -42,6 +44,7 @@ describe('Product Model', () => {
       id: 2,
       name: 'Breaking the habit of being yourself',
       price: 10,
+      short_description: 'Test short description',
       category_id: 1
     });
   });
@@ -52,6 +55,7 @@ describe('Product Model', () => {
       id: 2,
       name: 'Breaking the habit of being yourself',
       price: 10,
+      short_description: 'Test short description',
       category_id: 1
     });
   });
@@ -60,6 +64,7 @@ describe('Product Model', () => {
     const result: Product = await store.update(2, {
       name: 'Breaking the habit of being yourself, Joe Dispenza',
       price: 20,
+      short_description: 'Test short description',
       category_id: 1
     });
 
@@ -67,6 +72,7 @@ describe('Product Model', () => {
       id: 2,
       name: 'Breaking the habit of being yourself, Joe Dispenza',
       price: 20,
+      short_description: 'Test short description',
       category_id: 1
     });
   });

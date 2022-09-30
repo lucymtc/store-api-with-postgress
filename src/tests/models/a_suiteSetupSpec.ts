@@ -35,6 +35,7 @@ describe('Suite to setup shared setup ', () => {
     const product: Product = await pStore.create({
       name: 'Think and grow rich',
       price: 10,
+      short_description: 'Test short description',
       category_id: category.id
     });
 

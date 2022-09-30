@@ -13,7 +13,7 @@ The storefront connects to a postgress database, in order to set up the database
     - Get the container id and run:
     `docker exec -it <container_postgres_id> bash`
     - Run `psql -U postgres` to connect to postgres.
-    - Check if databases needed exist, for the app it self and separate databse for running tests `\psql`
+    - Check if databases needed exist, for the app it self and separate databse for running tests `psql \l`
     - If databases dont' exist, create.
         `create database lucymtc_storefront;`
         `create database lucymtc_storefront_tests;`
