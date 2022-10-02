@@ -16,7 +16,7 @@
     "test": "npm run build && db-migrate -e test up  && ENV=test jasmine & db-migrate reset -e test",
     "tsc": "tsc",
     "build": "rm -rf dist && npx tsc",
-    "prepare": "husky install"
+    "prepare": "if [[ -x \"$(command -v husky)\" ]]; then husky install; fi"
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
