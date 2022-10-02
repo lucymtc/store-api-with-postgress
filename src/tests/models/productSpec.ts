@@ -27,6 +27,7 @@ describe('Product Model', () => {
         name: 'Think and grow rich',
         price: 10,
         short_description: 'Test short description',
+        image: '',
         category_id: 1
       }
     ]);
@@ -37,6 +38,8 @@ describe('Product Model', () => {
       name: 'Breaking the habit of being yourself',
       price: 10,
       short_description: 'Test short description',
+      image:
+        'https://images.unsplash.com/photo-1583394838336-acd977736f90?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
       category_id: 1
     });
 
@@ -45,6 +48,8 @@ describe('Product Model', () => {
       name: 'Breaking the habit of being yourself',
       price: 10,
       short_description: 'Test short description',
+      image:
+        'https://images.unsplash.com/photo-1583394838336-acd977736f90?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
       category_id: 1
     });
   });
@@ -56,6 +61,8 @@ describe('Product Model', () => {
       name: 'Breaking the habit of being yourself',
       price: 10,
       short_description: 'Test short description',
+      image:
+        'https://images.unsplash.com/photo-1583394838336-acd977736f90?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
       category_id: 1
     });
   });
@@ -65,6 +72,8 @@ describe('Product Model', () => {
       name: 'Breaking the habit of being yourself, Joe Dispenza',
       price: 20,
       short_description: 'Test short description',
+      image:
+        'https://images.unsplash.com/photo-1583394838336-acd977736f90?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
       category_id: 1
     });
 
@@ -73,6 +82,8 @@ describe('Product Model', () => {
       name: 'Breaking the habit of being yourself, Joe Dispenza',
       price: 20,
       short_description: 'Test short description',
+      image:
+        'https://images.unsplash.com/photo-1583394838336-acd977736f90?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
       category_id: 1
     });
   });

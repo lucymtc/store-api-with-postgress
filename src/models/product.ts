@@ -5,6 +5,7 @@ export type Product = {
   name?: string;
   price?: number;
   short_description?: string;
+  image?: string;
   category_id?: number;
 };
 
@@ -40,13 +41,14 @@ export class ProductStore {
   async create(data: Product): Promise<Product> {
     try {
       const sql =
-        'INSERT INTO products (name, price, short_description, category_id) VALUES($1, $2, $3, $4) RETURNING *';
+        'INSERT INTO products (name, price, short_description, image, category_id) VALUES($1, $2, $3, $4, $5) RETURNING *';
       const conn = await Client.connect();
 
       const result = await conn.query(sql, [
         data.name,
         data.price,
         data.short_description,
+        data.image,
         data.category_id
       ]);
 
@@ -63,7 +65,7 @@ export class ProductStore {
   async update(id: number, data: Product): Promise<Product> {
     try {
       const sql =
-        'UPDATE products SET name = $2, price = $3, short_description = $4, category_id = $5 WHERE id = $1 RETURNING *';
+        'UPDATE products SET name = $2, price = $3, short_description = $4, image = $5, category_id = $6 WHERE id = $1 RETURNING *';
       const conn = await Client.connect();
 
       const result = await conn.query(sql, [
@@ -71,6 +73,7 @@ export class ProductStore {
         data.name,
         data.price,
         data.short_description,
+        data.image,
         data.category_id
       ]);
 

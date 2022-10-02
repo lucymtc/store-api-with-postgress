@@ -36,6 +36,7 @@ describe('Suite to setup shared setup ', () => {
       name: 'Think and grow rich',
       price: 10,
       short_description: 'Test short description',
+      image: '',
       category_id: category.id
     });
 

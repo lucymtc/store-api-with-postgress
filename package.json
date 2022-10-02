@@ -2,6 +2,9 @@
   "name": "storefront_backend",
   "version": "0.1.0",
   "description": "",
+  "engines": {
+    "node": "16.17.0"
+  },
   "main": "server.ts",
   "license": "MIT",
   "scripts": {
@@ -27,6 +30,7 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
+    "@types/cors": "^2.8.12",
     "@types/express": "^4.17.9",
     "@types/jasmine": "^4.3.0",
     "@types/jsonwebtoken": "^8.5.9",
